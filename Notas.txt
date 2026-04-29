@@ -1,2 +1,3 @@
 Para los ciclos, como idea tenemos primero ingresar Servicios, o productos o lo que fuere en general, una vez elegido, dentro de esa categoria se preguntara por
 el siguiente a elegir, por ejemplo, Productos/Shampoo/Shampoo comun, 2 en 1, Pieles atopicas.
+Llevar cuenta de servicios realizados, productos vendidos, y demas categorias.
