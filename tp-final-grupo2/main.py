@@ -36,7 +36,44 @@ ciclo=int(input("Ingrese un numero>0 para iniciar el sistema: "))
 while ciclo>0: 
     
     print("------MENÚ------")
-    #parte de gustavo
+    print("""
+    ROYAL PAWS
+      
+    SERVICIOS
+LAVADO: $6.000
+CORTE: $5.000
+FULL: $10.000
+
+    PRODUCTOS
+JUGUETE SQUEAKY: $2.500
+SHAMPOO: $3.000
+     COMUN 
+        SHAMPOO 2 EN 1
+     SHAMPOO PARA PIELES ATOPICAS
+      
+CHALECOS DE ABRIGO PERRO( XS, S, M, L, XL ): $5.000
+      
+    DESCUENTOS Y PROMOCIONES
+FULL + JUGUETE SQUEAKY: 15%
+LAVADO + CHALECO: 8%
+UNA COMPRA MAYOR A $10.000 ENVIO GRATIS
+      
+    RECARGOS
+RAZA PELIGROSA: %8
+MASCOTA EN MAL ESTADO: %20  
+
+    
+      ENVIOS
+ENVIOS A CABA: $1500
+ENVIOS A Prov. BUENOS AIRES: $8000
+
+    MEDIOS DE PAGO
+TARJETA DE CREDITO/DEBITO
+EFECTIVO
+TRANSFERIENCIA 
+      
+      """)
+
     
     print("Seleccione 1 para --x cosa--")
     if ciclo== 1: 
