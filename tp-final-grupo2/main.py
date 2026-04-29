@@ -28,7 +28,7 @@ while len(str(dniCliente))>15:
     print("ERROR-- El numero de telefono no puede tener más de 15 digitos, vuelva a ingresar. ")
     numTelCliente=int(input("Ingrese su numero de teléfono: "))
 
-   print("------MENÚ------")
+    print("------MENÚ------")
     print("""
     ROYAL PAWS
       
