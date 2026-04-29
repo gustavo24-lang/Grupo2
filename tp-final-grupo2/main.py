@@ -13,24 +13,21 @@
 """
 nombreCliente=input("Ingrese su nombre: "). title()
 nombreMascota=input("Ingrese el nombre de su mascota: ").title()
-dniCliente=int(input("Ingrese su numero de DNI: "))
-"""
+dniCliente=int(input("Ingrese su numero de DNI: ")) #dniCliente y numTelCliente son int para evitar que el usuario meta letras. 
 
-todavía no vimos las palabras reservadas que usé para el condicional
-
+#verifica que dniCLiente no tenga más de 8 carácteres
 while len(str(dniCliente))>8:
     print("ERROR-- El DNI no puede tener más de 8 digitos, vuelva a ingresar. ")
     dniCliente=int(input("Ingrese su numero de DNI: ")) 
-"""
-
+    
 dirCliente=input("Ingrese su dirección:  ").title()
 numTelCliente=int(input("Ingrese su numero de teléfono: "))
-"""
 
-    while len(str(dniCliente))>15:
+#verifica que numTel no tenga más de 15 carácteres 
+while len(str(dniCliente))>15:
     print("ERROR-- El numero de telefono no puede tener más de 15 digitos, vuelva a ingresar. ")
     numTelCliente=int(input("Ingrese su numero de teléfono: "))
-"""
+
 ciclo=int(input("Ingrese un numero>0 para iniciar el sistema: "))
 
 while ciclo>0: 
