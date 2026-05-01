@@ -68,41 +68,87 @@ TRANSFERIENCIA
       """)
 print("""SELECCION 1 PARA SERVICIOS, 2 PARA PRODUCTOS""")
 ciclo=int(input("La opción que desee: "))
+while ciclo <1 or ciclo>2:
+    ciclo=int(input("ERROR - Ingrese una opcion valida entre 1 y 2: "))
+
 ContLavado = 0
 SumLavado = 0
 ContCorte = 0
 SumCorte = 0
-ContFull =0
+ContFull = 0
 SumFull = 0 
-while ciclo>0: 
+ContJuguete = 0
+SumJuguete = 0
+ContShampoo = 0
+SumShampoo = 0 
+ContAbrigo =0
+SumAbrigo =0 
+shampooComun = 0
+shampoo2en1 = 0
+shampooAtopico = 0
+while ciclo !=-1: 
     if ciclo== 1: 
-        print("Ha seleccionado servicios  ")
+        print("✔ Ha seleccionado servicios  ")
         print("ingrese que servicio quiere 1 para lavado, 2 para corte, 3 para full")
         OpcServicios= int(input("ingrese una opcion de servicio: "))
         while OpcServicios <1 or OpcServicios>3:
             print("ERROR - ingrese una opcion valida 1 al 3:")
             OpcServicios= int(input("ingrese una opcion de servicio: "))
-        if OpcServicios ==1:
-            print("usted eligio lavado")
-            ContLavado +=1
-            SumLavado += 6000
-        elif OpcServicios == 2:
-            print("Usted eligio corte ")
-            ContCorte +=1
-            SumCorte +=5000
-        else:
-            ContFull +=1
-            SumFull += 10000 
-    print("Seleccione 2 para --x cosa--")
+
+        while OpcServicios != -1:
+
+            if OpcServicios ==1:
+                print("✔ usted eligio lavado")
+                ContLavado +=1
+                SumLavado += 6000
+            elif OpcServicios == 2:
+                print("✔ Usted eligio corte ")
+                ContCorte +=1
+                SumCorte +=5000
+            else:
+                ContFull +=1
+                SumFull += 10000 
+            print("si quiere volver a elegir un servicio")
+            print("ingrese que servicio quiere 1 para lavado, 2 para corte, 3 para full o -1 para finalizar")
+            OpcServicios= int(input("ingrese una opcion de servicio: "))
+            
     if ciclo== 2: 
-        print("Ha seleccionado --opción-- ")
-    print("Seleccione 3 para --x cosa--")
-    if ciclo== 3: 
-        print("Ha seleccionado --opción-- ")
-    print("Seleccione 4 para --x cosa--")
-    if ciclo== 4: 
-        print("Ha seleccionado --opción-- ")
-    print("Seleccione 5 para --x cosa--")   
-    if  ciclo== 5: 
-        print("Ha seleccionado --opción-- ")
-    ciclo=int(input("Ingrese un numero>0 para iniciar el sistema: "))
+
+        print("✔ Ha seleccionado productos ")
+        print("ingrese 1 para jueguete squeaky, 2 para shampoo , 3 para chaleco de abrigo canino")
+
+        OpcProductos = int(input("ingrese una opcion: "))
+
+        while OpcProductos <1 or OpcProductos >2:
+            OpcProductos = int(input(" ERROR - ingrese una opcion valida (1, 2 o 3): "))
+
+        while OpcProductos != -1 :
+
+            if OpcProductos==1 :
+                print(" ✔ selecciono un juguete!!")
+                ContJuguete +=1
+                SumJuguete += 2500
+            elif OpcProductos ==2:
+                opcshampoo = int(input("que shampoo quiere 1 para shampoo comun, 2 para 2 en 1, 3 para atopico: "))
+                while opcshampoo <1 or opcshampoo>3:
+                 opcshampoo = int(input("ERROR - Ingrese un numero valido del 1 al 3: "))
+                if opcshampoo== 1:
+                    print("✔ usted eligio shampoo comun")
+                    shampooComun +=1
+                elif opcshampoo ==2:
+                    print("✔ usted eligio shampo 2 en 1")
+                    shampoo2en1 +=1
+                else:
+                    print("✔ usted eligio shampoo")
+                    shampooAtopico +=1
+                ContShampoo +=1
+                SumShampoo += 3000 
+            else:
+                ContAbrigo +=1
+                SumAbrigo += 5000
+            print("Siquiere volver a comprar un producto")
+            print("ingrese 1 para jueguete squeaky, 2 para shampoo , 3 para chaleco de abrigo canino o -1 para finalizar")
+
+            OpcProductos = int(input("ingrese una opcion: "))
+    print("""SELECCION 1 PARA SERVICIOS, 2 PARA PRODUCTOS""")
+    ciclo=int(input("quiere volver a elegir selecione una opcion (-1 para finalizar): "))
