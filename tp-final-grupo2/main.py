@@ -12,8 +12,8 @@ dirCliente=input("Ingrese su dirección:  ").title()
 numTelCliente=int(input("Ingrese su numero de teléfono: "))
 
 #verifica que numTel no tenga más de 15 carácteres 
-while len(str(numTelCliente))>15  or len(str(numTelCliente))<15 :
-    print("ERROR-- El numero de telefono no puede tener más ni menos de 15 digitos, vuelva a ingresar. ")
+while len(str(numTelCliente))>10  or len(str(numTelCliente))<10 : #CAMBIE LA VALIDACION
+    print("ERROR-- El numero de telefono no puede tener más ni menos de 11 digitos, vuelva a ingresar. ")
     numTelCliente=int(input("Ingrese su numero de teléfono: "))
 
 
@@ -63,6 +63,8 @@ SumFull = 0
 SumJuguete = 0
 SumShampoo = 0 
 SumAbrigo =0 
+EnviosCaba = 0
+EnviosProv =0
 TotPagar = SumAbrigo+SumLavado+SumJuguete+SumCorte+SumShampoo+SumFull
 while ciclo !=-1: 
     if ciclo== 1: 
@@ -149,12 +151,31 @@ while ciclo !=-1:
             print("ingrese 1 para jueguete squeaky, 2 para shampoo , 3 para chaleco de abrigo canino o -1 para finalizar")
 
             OpcProductos = int(input("ingrese una opcion: "))
+            print("DESEA ELEGIR UN METODO DE ENVIO? (si/no) ") #AGREGE EL ENVIO FALTA VALIDACIONES
+            opcEnvios = input("ingrese su respuesta: ").upper()
+            if opcEnvios == "SI":
+                print("""
+                    Los precios de envío son:
+            1) ENVIOS A CABA: $1500
+            2) ENVIOS A Prov. BUENOS AIRES: $8000""")
+                Envios = int(input("ingrese una opcion: "))
+                if Envios== 1:
+                    print("HAS SELECCIONADO ENVIO A CABA!!!")
+                    EnviosCaba += 1500
+                else:
+                    EnviosProv += 5000 
+                    print("HAS SELECCIONADO ENVIO A PROV.BUENOS AIRES!!!")
+            elif opcEnvios == "NO":
+                print("GRACIAS")
+
+
     print("""SELECCION 1 PARA SERVICIOS, 2 PARA PRODUCTOS""")
     
     ciclo=int(input("Quiere volver a elegir selecione una opcion (-1 para finalizar): "))
-   
+    print(" ")
+    print("========================================")
     print("--Factura de servicio Royal Paws--")
-    print("------------------------------------------")
+    print("========================================")
 
     print("""ROYAL PAWS
             Av. Belgrano y Av. Pueyrredón,
@@ -163,7 +184,7 @@ while ciclo !=-1:
             RoyalPaws@gmail.com 
                 """)
 
-    print("------------------------------------------")
+    print("========================================")
 
     print("Cliente: ,", nombreCliente,
           "Mascota: ", nombreMascota, 
@@ -171,18 +192,22 @@ while ciclo !=-1:
           "Dirección: ", dirCliente, 
           "Numero Teléfono: ", numTelCliente)
 
-    print("------------------------------------------")
+    print("========================================")
     print("Servicios contratados")
-    print(ContLavado, " Servicios de lavado", ContCorte, "Servicios de corte ", ContFull, " Servicios 'full'  ")
+    print(ContLavado, " Servicios de lavado")
+    print(ContCorte, "Servicios de corte ")
+    print(ContFull, " Servicios 'full'  ")
     print("El precio total a pagar por los SERVICIOS es de ", SumCorte+SumFull+SumLavado)
     
     print(" ")
     
     print("Productos comprados")
-    print("Compró ", ContJuguete, " Juguetes ", ContShampoo, " Shampoos (De cualquiera de las 3 variedades) ", ContAbrigo, " Abrigos (de cualquiera de los talles)")
+    print( ContJuguete, " Juguetes ")
+    print(ContShampoo, " Shampoos (De cualquiera de las 3 variedades) ")
+    print(ContAbrigo, " Abrigos (de cualquiera de los talles)")
     print("El total a pagar por los productos es de ", SumAbrigo+SumJuguete+SumShampoo)
     
     print("El total a pagar es de: ", TotPagar)
     
-    print("------------------------------------------")
+    print("========================================")
     print("El precio final es de: ")
