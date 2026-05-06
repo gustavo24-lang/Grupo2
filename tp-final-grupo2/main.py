@@ -17,6 +17,15 @@ while len(str(numTelCliente))>15  or len(str(numTelCliente))<15 :
     numTelCliente=int(input("Ingrese su numero de teléfono: "))
 
 
+print("------MENÚ------")
+print("""
+    ROYAL PAWS
+      
+    SERVICIOS
+LAVADO: $6.000
+CORTE: $5.000
+FULL: $10.000
+
 print("""BIENVENIDO A ROYAL PAWS
         Tenemos los siguientes descuentos y promociones
             FULL + JUGUETE SQUEAKY: 15%
@@ -60,11 +69,8 @@ shampooAtopico = 0
 SumLavado = 0
 SumCorte = 0
 SumFull = 0 
-SumJuguete = 0
-SumShampoo = 0 
-SumAbrigo =0 
-TotPagar = SumAbrigo+SumLavado+SumJuguete+SumCorte+SumShampoo+SumFull
-while ciclo !=-1: 
+while ciclo>0: 
+    #opción 1 = servicios
     if ciclo== 1: 
         
         print("""✔ Ha seleccionado servicios  
@@ -80,24 +86,22 @@ while ciclo !=-1:
         while OpcServicios <1 or OpcServicios>3:
             print("ERROR - ingrese una opcion valida 1 al 3:")
             OpcServicios= int(input("ingrese una opcion de servicio: "))
-
-        while OpcServicios != -1:
-
-            if OpcServicios ==1:
-                print("✔ usted eligio lavado")
-                ContLavado +=1
-                SumLavado += 6000
-            elif OpcServicios == 2:
-                print("✔ Usted eligio corte ")
-                ContCorte +=1
-                SumCorte +=5000
-            else:
-                ContFull +=1
-                SumFull += 10000 
-            print("si quiere volver a elegir un servicio")
-            print("ingrese que servicio quiere 1 para lavado, 2 para corte, 3 para full o -1 para finalizar")
-            OpcServicios= int(input("ingrese una opcion de servicio: "))
+        #--LAVADO--
+        if OpcServicios ==1:
+            print("usted eligio lavado")
+            ContLavado +=1
+            SumLavado += 6000
+        #--CORTE--
+        elif OpcServicios == 2:
+            print("Usted eligio corte ")
+            ContCorte +=1
+            SumCorte +=5000
+        #--FULL--
+        else:
+            ContFull +=1
+            SumFull += 10000 
             
+    print("Seleccione 2 para --x cosa--")
     if ciclo== 2: 
         #agregar un submenú para talles de chaleco
         print("""✔ Ha seleccionado productos
