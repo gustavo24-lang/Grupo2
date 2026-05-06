@@ -1,8 +1,6 @@
 Para los ciclos, como idea tenemos primero ingresar Servicios, o productos o lo que fuere en general, una vez elegido, dentro de esa categoria se preguntara por
 el siguiente a elegir, por ejemplo, Productos/Shampoo/Shampoo comun, 2 en 1, Pieles atopicas.
-<<<<<<< Updated upstream
 Llevar cuenta de servicios realizados, productos vendidos, y demas categorias.
-=======
 
 agrego un intento de visualizar el ejemplo: 
 en el ciclo el usuario elige la opción "productos"
@@ -13,4 +11,43 @@ productos
         opción1 de prod3
         opción2 de prod3
         opción3 de prod3
->>>>>>> Stashed changes
+        
+print("------MENÚ------")
+print("""
+    ROYAL PAWS
+      
+    SERVICIOS
+LAVADO: $6.000
+CORTE: $5.000
+FULL: $10.000
+
+    PRODUCTOS
+JUGUETE SQUEAKY: $2.500
+SHAMPOO: $3.000
+     COMUN 
+        SHAMPOO 2 EN 1
+     SHAMPOO PARA PIELES ATOPICAS
+      
+CHALECOS DE ABRIGO PERRO( XS, S, M, L, XL ): $5.000
+      
+    DESCUENTOS Y PROMOCIONES
+FULL + JUGUETE SQUEAKY: 15%
+LAVADO + CHALECO: 8%
+UNA COMPRA MAYOR A $10.000 ENVIO GRATIS
+      
+    RECARGOS
+RAZA PELIGROSA: %8
+MASCOTA EN MAL ESTADO: %20  
+
+    
+      ENVIOS
+ENVIOS A CABA: $1500
+ENVIOS A Prov. BUENOS AIRES: $8000
+
+    MEDIOS DE PAGO
+TARJETA DE CREDITO/DEBITO
+EFECTIVO
+TRANSFERIENCIA 
+      
+      """)
+"""
