@@ -117,7 +117,7 @@ while ciclo>0:
                     2.SHAMPOO: $3.000
                          COMUN 
                         SHAMPOO 2 EN 1
-                         SHAMPOO PARA PIELES ATOPICAS
+                         SHAMPOO PARA PIELES ATOPICAS""")
 
         if ciclo == 2:
             eligioProductos = True  
