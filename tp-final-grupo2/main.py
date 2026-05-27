@@ -2,27 +2,39 @@ total_servicios_global = 0
 total_productos_global = 0
 cantidad_clientes = 3
 
-# Contadores para servicios
-total_lavados = 0
-total_cortes = 0
-total_full = 0
+nombreCliente=input("Ingrese su nombre: "). title()
+while len(nombreCliente) < 2 or len(nombreCliente)>= 20:
+    print("ERROR-- Nombre del cliente demasiado corto o largo. Vuelva a ingresarlo. ")
+    nombreCliente=input("Ingrese su nombre: "). title()
 
-# Contadores para productos
-total_juguetes = 0
-total_shampoos = 0
-total_abrigos = 0
-for i in range(3):
-    print("BIENVENIDO A ROYAL PAWS")
-    nombreCliente = input("Ingrese su nombre: ").title()
-    nombreMascota = input("Ingrese el nombre de su mascota: ").title()
-    dniCliente = int(input("Ingrese su numero de DNI: "))
+nombreMascota=input("Ingrese el nombre de su mascota: ").title()
+while len(nombreMascota) < 2 or len(nombreMascota) >= 20:#NUEVO
+    print("ERROR-- Nombre de mascota demasiado largo o corto. Vuelva a ingresarlo")
+    nombreMascota=input("Ingrese el nombre de su mascota: ").title()
 
-    while len(str(dniCliente)) > 8:
-        print("ERROR-- El DNI no puede tener más de 8 digitos, vuelva a ingresar.")
-        dniCliente = int(input("Ingrese su numero de DNI: "))
+dniCliente=int(input("Ingrese su numero de DNI: ")) #dniCliente y numTelCliente son int para evitar que el usuario meta letras. 
+#verifica que dniCLiente no tenga más de 8 carácteres
+while len(str(dniCliente)) != 8: #Modificado para evitar que vayan con un nro menor o mayor al lim.
+    print("ERROR-- El DNI no puede tener más de 8 digitos, vuelva a ingresar. ")
+    dniCliente=int(input("Ingrese su numero de DNI: ")) 
+    
+    
+dirCliente=input("Ingrese su dirección:  ").title()
+#verificamos que la dirección no tenga menos de 3 carácteres ni más de 30
+while 3 > len(int(dirCliente)) < 30: #NUEVO
+    print("ERROR -- La dirección tiene muy pocos o demasiados caracteres, vuelva a ingresarla.")     
+    dirCliente=input("Ingrese su dirección:  ").title()
+
+
+numTelCliente=int(input("Ingrese su numero de teléfono: "))
+#verifica que numTel no tenga más de 15 carácteres 
+while len(str(numTelCliente)) != 15 :
+    print("ERROR-- El numero de telefono no puede tener más ni menos de 15 digitos, vuelva a ingresar. ")
+    numTelCliente=int(input("Ingrese su numero de teléfono: "))
 
     dirCliente = input("Ingrese su direccion: ").title()
     numTelCliente = int(input("Ingrese su numero de telEfono: "))
+
 
 print("""BIENVENIDO A ROYAL PAWS
         Tenemos los siguientes descuentos y promociones
@@ -55,11 +67,15 @@ print("""BIENVENIDO A ROYAL PAWS
 SumLavado = 0
 SumCorte = 0
 SumFull = 0 
+SumServicios=SumLavado+SumCorte+SumFull
 SumJuguete = 0
-SumShampoo = 0 
-SumAbrigo =0 
-TotPagar = SumAbrigo+SumLavado+SumJuguete+SumCorte+SumShampoo+SumFull
-while ciclo !=-1: 
+SumAbrigo = 0
+SumShampoo = 0
+SumProd = SumJuguete + SumAbrigo + SumShampoo
+
+TotPagar = SumServicios + SumShampoo
+while ciclo>0: 
+    #opción 1 = servicios
     if ciclo== 1: 
         
         print("""✔ Ha seleccionado servicios  
