@@ -375,3 +375,35 @@ for i in range(CANTIDAD_CLIENTES):
     total_servicios += datos_serv[0]
     total_productos += datos_prod[0]
 
+def mostrar_estadisticas(total_servicios, total_productos, mat_servicios, mat_productos, mat_shampoo):
+    print("========================================")
+    print("          ESTADÍSTICAS TOTALES          ")
+    print("========================================")
+    print(" INGRESOS:")
+    print("   - Total Servicios: $", total_servicios)
+    print("   - Total Productos: $", total_productos)
+    print("   - TOTAL GENERAL:   $", total_servicios + total_productos)
+    print("----------------------------------------")
+    burbujeo(mat_servicios)
+    burbujeo(mat_productos)
+    print(" TOP VENTAS:")
+    if mat_servicios[0][2] > 0:
+        print("   - Servicio más elegido: ", mat_servicios[0][0], "(", mat_servicios[0][2], "veces )")
+    else:
+        print("   - Servicio más elegido: Ninguno")
+
+    if mat_productos[0][2] > 0:
+        print("   - Producto más vendido: ", mat_productos[0][0], "(", mat_productos[0][2], "unidades )")
+    else:
+        print("   - Producto más vendido: Ninguno")
+
+    print("----------------------------------------")
+    print(" TIPO DE SHAMPOO:")
+    for i in range(len(mat_shampoo)):
+        print("   -", mat_shampoo[i][0], ":", mat_shampoo[i][1])
+    print("========================================")
+
+    total_servicios += datos_serv[0]
+    total_productos += datos_prod[0]
+
+mostrar_estadisticas(total_servicios, total_productos, servicios, productos, tipos_shampoo)
