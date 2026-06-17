@@ -1,0 +1,370 @@
+def bienvenida ():
+    print("""
+============================================
+    Bienvenido a Royal Paws
+============================================
+Descuentos y Promociones:
+    FULL + JUEGUETE SQUEAKY: 15%
+    LAVADO + CHALECO: 8%
+    COMPRA > $10.000: ENVIO GRATIS
+          
+RECARGOS:
+    RAZA PELIGROSA:  8%
+    MAL ESTADO:     20%
+ 
+  ENVIOS:
+    CABA:              $1.500
+    Prov. Buenos Aires: $8.000
+ 
+  MEDIOS DE PAGO:
+    TARJETA | EFECTIVO | TRANSFERENCIA
+============================================
+    1) SERVICIOS
+    2) PRODUCTOS
+============================================
+""")
+def pedir_opcion(mensaje, minimo, maximo):
+    valor = int(input(mensaje))
+    while valor < minimo or valor> maximo:
+        print("ERROR- ingrese un numero entre ", minimo, "y", maximo)
+        valor = int(input(mensaje))
+    return valor
+
+def registrar_cliente():
+    nombre  = input("Ingrese su nombre: ").title()
+    mascota = input("Ingrese el nombre de su mascota: ").title()
+ 
+    dni = input("Ingrese su DNI: ")
+    while len(dni) < 7 or len(dni) > 8:
+        print("ERROR - el DNI no puede tener mas de 8 digitos ni menos de 7.")
+        dni = input("Ingrese su DNI: ")
+ 
+    direccion = input("Ingrese su direccion: ").title()
+    while len(direccion) > 20 or len(direccion) < 3:
+        print("Error, ingrese una dirección válida.")
+        direccion = input("Ingrese su direccion: ").title()
+
+ 
+    telefono = input("Ingrese su telefono (10 digitos): ")
+    while len(telefono) != 10:
+        print("ERROR - el telefono debe tener exactamente 10 digitos.")
+        telefono = input("Ingrese su telefono: ")
+ 
+    return nombre, mascota, dni, direccion, telefono
+def matriz(lista1, lista2, lista3, lista4):
+    mat = []
+    for i in range(len(lista1)):
+        mat.append([lista1[i], lista2[i], lista3[i], lista4[i]])
+    return mat
+def matriz2(lista1, lista2):
+    mat = []
+    for i in range(len(lista1)):
+        mat.append([lista1[i], lista2[i]])
+    return mat
+def mostrar(mat):
+    for i in range(len(mat)):
+        print(mat[i])
+
+def elegir_servicios():
+    print("""
+    SERVICIOS DISPONIBLES:
+          1. Lavado ==> $6.000
+          2. Corte ==>  $5.000
+          3. Full ==>   $10.000
+    (-1 para terminar)
+""")
+    opcion = pedir_opcion("Ingrese servicio que desea: ", -1, 3)
+    while opcion == 0:
+        opcion = pedir_opcion("ERROR - Ingrese 1, 2, 3 o -1 para salir: ", -1, 3)
+    
+    subtotal   = 0
+    cont_lavado = 0
+    cont_corte  = 0
+    cont_full   = 0
+    while opcion != -1:
+        if opcion == 1:
+            servicios[0][2] += 1
+            servicios[0][3] += servicios[0][1]
+            subtotal        += servicios[0][1]
+            cont_lavado     += 1
+            print("ELEGISTE LAVADO")
+        elif opcion == 2:
+            servicios[1][2] += 1
+            servicios[1][3] += servicios[1][1]
+            subtotal        += servicios[1][1]
+            cont_corte      += 1
+            print("ELEGISTE CORTE")
+        else:
+            servicios[2][2] += 1
+            servicios[2][3] += servicios[2][1]
+            subtotal        += servicios[2][1]
+            cont_full       += 1
+            print("ELEGISTE FULL")
+        opcion = pedir_opcion("  Servicio (1-3) o -1 para terminar: ", -1, 3)
+        while opcion == 0:
+            opcion = pedir_opcion("  ERROR - ingrese 1, 2, 3 o -1: ", -1, 3)
+    return [subtotal, cont_lavado, cont_corte, cont_full]
+def elegir_productos():
+    print("""
+  PRODUCTOS DISPONIBLES:
+    1. Juguete Squeaky       ==> $2.500
+    2. Shampoo               ==> $3.000
+    3. Chaleco de Abrigo     ==> $5.000
+  (-1 para terminar)""")
+ 
+    subtotal      = 0
+    cont_juguete  = 0
+    cont_shampoo  = 0
+    cont_abrigo   = 0
+    shampoo_comun = 0
+    shampoo_2en1  = 0
+    shampoo_atop  = 0
+ 
+    opcion = pedir_opcion("  Producto: ", -1, 3)
+    while opcion == 0:
+        opcion = pedir_opcion("  ERROR - ingrese 1, 2, 3 o -1: ", -1, 3)
+ 
+    while opcion != -1:
+        if opcion == 1:
+            productos[0][2] += 1
+            productos[0][3] += productos[0][1]
+            subtotal        += productos[0][1]
+            cont_juguete    += 1
+            print("  ELEGISTE JUGUETE SQUEAKY")
+ 
+        elif opcion == 2:
+            tipo = pedir_opcion("  Tipo de shampoo  1-Comun  2-2en1  3-Atopico: ", 1, 3)
+            tipos_shampoo[tipo - 1][1] += 1 #chicos aca le reste 1 por que el indice emipieza en 0
+            if tipo == 1:
+                shampoo_comun += 1
+            elif tipo == 2:
+                shampoo_2en1  += 1
+            else:
+                shampoo_atop  += 1
+            productos[1][2] += 1
+            productos[1][3] += productos[1][1]
+            subtotal        += productos[1][1]
+            cont_shampoo    += 1
+            print("  ELEGISTE SHAMPOO")
+ 
+        else:
+            productos[2][2] += 1
+            productos[2][3] += productos[2][1]
+            subtotal        += productos[2][1]
+            cont_abrigo     += 1
+            print("  ELEGISTE CHALECO DE ABRIGO")
+ 
+        opcion = pedir_opcion("  Producto (1-3) o -1 para terminar: ", -1, 3)
+        while opcion == 0:
+            opcion = pedir_opcion("  ERROR - ingrese 1, 2, 3 o -1: ", -1, 3)
+ 
+    return [subtotal, cont_juguete, cont_shampoo, cont_abrigo,
+            shampoo_comun, shampoo_2en1, shampoo_atop]
+def pedir_siono(mensaje):
+    respuesta = input(mensaje).upper()
+    while respuesta != "SI" and respuesta != "NO":
+        print("ERROR - ingrese SI o NO.")
+        respuesta = input(mensaje).upper()
+    return respuesta
+def calcular_envio():
+    respuesta = pedir_siono("Desea envio? (si/no): ")
+    if respuesta == "NO":
+        print("Sin envio gracias")
+        return[0,0] 
+    print("""
+  Opciones de envio:
+    1) CABA              ==> $1.500
+    2) Prov. Buenos Aires ==> $8.000""")
+ 
+    opcion = pedir_opcion("Ingrese opcion (1 o 2): ", 1, 2)
+    if opcion == 1:
+        print("  Envio a CABA - $1.500")
+        return [1, 1500]
+    else:
+        print("Envio a Prov. Buenos Aires - $8.000")
+        return [2, 8000]
+
+def calcular_descuento(base, cont_full, cont_juguete, cont_lavado, cont_abrigo):
+# chicos aca deberia recibir base que es el subtotal de la compra antes del descuentos 
+# aca recibre cont_full q que es la cantidad de servicios full elegidos por cliente 
+# lo mismo con los otros 
+    if cont_full > 0 and cont_juguete > 0:
+        return [base * 0.15, "FULL + JUGUETE (15%)"]
+    elif cont_lavado > 0 and cont_abrigo > 0:
+        return [base * 0.08, "LAVADO + CHALECO (8%)"]
+    else:
+        return [0, "Ninguno"]  
+def calcular_recargo(base):
+    raza = pedir_siono("  La mascota es de RAZA PELIGROSA? (SI/NO): ")
+    mal  = pedir_siono("  La mascota esta en MAL ESTADO? (SI/NO): ")
+ 
+    if raza == "SI" and mal == "SI":
+        return [base * 0.28, "Raza peligrosa (8%) + Mal estado (20%)"]
+    elif raza == "SI":
+        return [base * 0.08, "Raza peligrosa (8%)"]
+    elif mal == "SI":
+        return [base * 0.20, "Mal estado (20%)"]
+    else:
+        return [0, "Ninguno"]  
+def factura(nombre, mascota, dni, direccion, telefono, datos_serv, datos_prod, descuento,nombre_desc,recargo,   nombre_rec, tipo_envio, costo_envio, envio_gratis):
+    sub_serv = datos_serv[0]
+    sub_prod = datos_prod[0]
+    base     = sub_serv + sub_prod
+    total    = base - descuento + recargo + costo_envio
+
+    print("")
+    print("========================================")
+    print("         FACTURA - ROYAL PAWS           ")
+    print("========================================")
+    print("  Av. Belgrano y Av. Pueyrredon")
+    print("  CUIT: 14-25364758-6")
+    print("  Tel:  11-3256-4800")
+    print("  RoyalPaws@gmail.com")
+    print("========================================")
+    print("  Cliente:  ", nombre)
+    print("  Mascota:  ", mascota)
+    print("  DNI:      ", dni)
+    print("  Direccion:", direccion)
+    print("  Telefono: ", telefono)
+    print("========================================")
+    print("  SERVICIOS:")
+    sin_serv = True #chicos esto es por si el usuario no elige nada seria sin servicio
+    sin_prod = True
+    if datos_serv[1]>0:
+        print("    Lavado: ", datos_serv[1], " x $6.000 = $", datos_serv[1]*6000)
+        sin_serv = False
+    if datos_serv[2] > 0:   # cont_corte
+        print(" ", datos_serv[2], "x Corte      $", datos_serv[2] * 5000)
+        sin_serv = False
+
+    if datos_serv[3] > 0:   # cont_full
+        print(" ", datos_serv[3], "x Full       $", datos_serv[3] * 10000)
+        sin_serv = False
+    if sin_serv:
+        print("   (Sin servicios)")
+    print("   SUBTOTAL SERVICIOS: $", round(sub_serv))
+    print("  ** PRODUCTOS **")
+
+    if datos_prod[1] > 0:   # cont_juguete
+        print(" ", datos_prod[1], "x Juguete    $", datos_prod[1] * 2500)
+        sin_prod = False
+
+    if datos_prod[2] > 0:   # cont_shampoo
+        print(" ", datos_prod[2], "x Shampoo    $", datos_prod[2] * 3000)
+        sin_prod = False
+        if datos_prod[4] > 0:
+            print("      - Comun:  ", datos_prod[4])
+        if datos_prod[5] > 0:
+            print("      - 2 en 1: ", datos_prod[5])
+        if datos_prod[6] > 0:
+            print("      - Atopico:", datos_prod[6])
+
+    if datos_prod[3] > 0:   # cont_abrigo
+        print(" ", datos_prod[3], "x Chaleco    $", datos_prod[3] * 5000)
+
+    if sin_prod:
+        print("   (Sin productos)")
+    print("   SUBTOTAL PRODUCTOS: $", round(sub_prod))
+ 
+    print("========================================")
+    print("  SUBTOTAL:$", round(base))
+    print("  Descuento (", nombre_desc, "): -$", round(descuento))
+    print("  Recargo   (", nombre_rec,  "): +$", round(recargo))
+ 
+    if tipo_envio == 0:
+        print("  Envio: Sin envio")
+    elif envio_gratis:
+        print("  Envio: GRATIS (compra > $10.000)")
+    elif tipo_envio == 1:
+        print("  Envio a CABA: $",round(costo_envio))
+    else:
+        print("  Envio a Prov.: $", round(costo_envio))
+ 
+    print("========================================")
+    print("  TOTAL A PAGAR: $", round(total))
+    print("========================================")
+    print("  Gracias por elegirnos!")
+    print("========================================")
+ 
+    return total
+def burbujeo(matriz):
+    """aca ordena la matriz de MAYOR a MENOR segun la columna 2 cantidad vendida."""
+    n = len(matriz)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if matriz[j][2] < matriz[j + 1][2]:
+                aux            = matriz[j]
+                matriz[j]      = matriz[j + 1]
+                matriz[j + 1]  = aux
+
+
+
+nombres_servicios= ["Lavado",  "Corte",  "Full"]
+precios_servicios = [6000,       5000,     10000]
+cantidades_servicios = [0, 0, 0]
+subtotales_servicios = [0, 0, 0]
+servicios = matriz(nombres_servicios, precios_servicios, cantidades_servicios, subtotales_servicios)
+
+nombres_productos = ["Juguete Squeaky",  "Shampoo",  "Chaleco de Abrigo"]
+precios_productos = [2500,                3000,        5000]
+cantidades_productos = [0, 0, 0]
+subtotales_productos = [0, 0, 0]
+productos = matriz(nombres_productos,precios_productos,cantidades_productos,subtotales_productos)
+
+ 
+
+nombres_shampoo    = ["Comun",  "2 en 1",  "Atopico"]
+cant_ini_shampoo   = [0,         0,          0]
+tipos_shampoo = matriz2(nombres_shampoo, cant_ini_shampoo)
+ 
+
+nombres_clientes = []
+dnis_clientes    = []
+CANTIDAD_CLIENTES = 1
+
+total_servicios = 0
+total_productos = 0
+for i in range(CANTIDAD_CLIENTES):
+    print("========================================")
+    print("CLIENTE", i + 1, "de", CANTIDAD_CLIENTES)
+    print("========================================")
+    nombre, mascota, dni, direccion, telefono = registrar_cliente()
+    bienvenida()
+    print("""
+
+  1 ==> Servicios
+  2 ==> Productos""")
+    ciclo = pedir_opcion("Ingrese opcion: ", 1, 2)
+    datos_serv = [0, 0, 0, 0] 
+    datos_prod = [0, 0, 0, 0, 0, 0, 0]
+    tipo_envio  = 0
+    costo_envio = 0
+    while ciclo != -1:
+        if ciclo == 1:
+            datos_serv = elegir_servicios()
+ 
+        if ciclo == 2:
+            datos_prod = elegir_productos()
+            resultado_envio = calcular_envio()
+            tipo_envio  = resultado_envio[0]
+            costo_envio = resultado_envio[1]
+ 
+        ciclo = pedir_opcion("1==>Servicios  2==>Productos  -1==>Finalizar: ", -1, 2)
+        while ciclo == 0:
+            ciclo = pedir_opcion("ERROR - ingrese 1, 2 o -1: ", -1, 2)
+    base = datos_serv[0] + datos_prod[0]
+    resultado_desc = calcular_descuento(base, datos_serv[3], datos_prod[1], datos_serv[1], datos_prod[3])
+    descuento      = resultado_desc[0]
+    nombre_desc    = resultado_desc[1]
+    #aca si el envio es mayor a 10000 el envio es gratis
+    if base > 10000 :
+        costo_envio = 0
+    
+    resultado_rec = calcular_recargo(base)
+    recargo      = resultado_rec[0]
+    nombre_rec   = resultado_rec[1]
+    total = factura(nombre, mascota, dni, direccion, telefono,datos_serv, datos_prod,descuento, nombre_desc,recargo,nombre_rec,tipo_envio, costo_envio, costo_envio)
+
+ 
+    total_servicios += datos_serv[0]
+    total_productos += datos_prod[0]
