@@ -39,12 +39,6 @@ RECARGOS:
 """)
     
     
-def pedir_opcion(mensaje, minimo, maximo):
-    valor = int(input(mensaje))
-    while valor < minimo or valor> maximo:
-        print("ERROR- ingrese un numero entre ", minimo, "y", maximo)
-        valor = int(input(mensaje))
-    return valor
 
 def registrar_cliente():
     nombre  = input("Ingrese su nombre: ").title()
