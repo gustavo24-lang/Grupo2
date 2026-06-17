@@ -3,15 +3,15 @@ def definir_y_validar_texto(mensaje, error, min, max):
     variable = input(mensaje).lower()
     while len(variable) > max or len(variable) < min:
         print(error)
-        varible = input(mensaje).lower()
+        variable = input(mensaje).lower()
     return(variable)
 
 
 def  definir_y_validar_int(mensaje, error, min, max):
-    variable = input(mensaje)
+    variable = int(input(mensaje))
     while variable > max or variable < min:
         print(error)
-        varible = input(mensaje)
+        variable = int(input(mensaje))
     return(variable)
 
 def pedir_opcion(mensaje, minimo, maximo):
