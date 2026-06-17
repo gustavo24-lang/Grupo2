@@ -307,6 +307,12 @@ def burbujeo(matriz):
                 aux            = matriz[j]
                 matriz[j]      = matriz[j + 1]
                 matriz[j + 1]  = aux
+def buscar_dni(dni):
+    """chicos aca recorre la lista de DNIs ya registrados devuelve True si lo encuentra."""
+    for i in range(len(dnis_clientes)):
+        if dnis_clientes[i] == dni:
+            return True
+    return False
 
 
 
@@ -340,6 +346,11 @@ for i in range(CANTIDAD_CLIENTES):
     print("CLIENTE", i + 1, "de", CANTIDAD_CLIENTES)
     print("========================================")
     nombre, mascota, dni, direccion, telefono = registrar_cliente()
+    if buscar_dni(dni):
+        print("AVISO - Este DNI ya fue registrado antes.")
+    else:
+        nombres_clientes.append(nombre)
+        dnis_clientes.append(dni)
     bienvenida()
     print("""
 
