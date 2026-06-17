@@ -1,3 +1,17 @@
+def definir_y_validar_texto(mensaje, error, min, max):
+    variable = input(mensaje)
+    while len(variable) > max or len(variable) < min:
+        print(error)
+        varible = input(mensaje)
+    return(variable)
+
+def  definir_y_validar_int(mensaje, error, min, max):
+    variable = input(mensaje)
+    while variable > max or variable < min:
+        print(error)
+        varible = input(mensaje)
+    return(variable)
+ 
 def bienvenida ():
     print("""
 ============================================
@@ -23,6 +37,8 @@ RECARGOS:
     2) PRODUCTOS
 ============================================
 """)
+    
+    
 def pedir_opcion(mensaje, minimo, maximo):
     valor = int(input(mensaje))
     while valor < minimo or valor> maximo:
