@@ -1,3 +1,4 @@
+vivan las tetaas
 def definir_y_validar_texto(mensaje, error, min, max):
     variable = input(mensaje)
     while len(variable) > max or len(variable) < min:
